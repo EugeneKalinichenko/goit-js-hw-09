@@ -54,19 +54,19 @@ const options = {
 flatpickr('#datetime-picker', options);
 
 function convertMs(ms) {
-  // Количество милисикунд на единицу времени
+  // Number of milliseconds per unit of time
   const second = 1000;
   const minute = second * 60;
   const hour = minute * 60;
   const day = hour * 24;
 
-  // Дни
+  // Remaining days
   const days = addLeadingZero(Math.floor(ms / day));
-  // Чвсы
+  // Remaining hours
   const hours = addLeadingZero(Math.floor((ms % day) / hour));
-  // Минуты
+  // Remaining minutes
   const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
-  // Секунды
+  // Remaining seconds
   const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
 
   return { days, hours, minutes, seconds };
